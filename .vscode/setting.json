@@ -1,0 +1,8 @@
+{
+    "git.autofetch": true,
+    "editor.formatOnSave": true,
+    "[cpp]": {
+        "editor.defaultFormatter": "xaver.clang-format"
+    },
+    "cmake.configureOnOpen": true
+}
