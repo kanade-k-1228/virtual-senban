@@ -2,33 +2,37 @@
 
 ## 環境構築
 
-1. ツールのインストール
+1. このリポジトリをローカルにクローン
+   - `cd`
+   - `git clone https://github.com/kanade-k-1228/open-gl-test.git`
+2. 各種ツールのインストール
    - g++, gdb, make, cmake, clang-format
    - `sudo apt-get update`
    - `sudo apt-get install build-essential gdb cmake cmake-format`
-2. OpenGL のインストール
-   - `sudo apt-get update`
+3. OpenGL のインストール
    - `sudo apt-get install libglu1-mesa-dev freeglut3-dev mesa-common-dev`
-3. このリポジトリをローカルにクローン
-   - `cd`
-   - `git clone https://github.com/kanade-k-1228/virtual-senban.git`
 4. VSCode を開く
-   - `cd [your project name]`
-   - `code .`
+   - `code open-gl-test`
 5. 拡張機能を入れる
-   - 右下のポップアップで出てくる
-   - `.vscode/extensions.json` に書いてある
-6. CMake Tools の Build Variant を設定
-   - 下のステータスバーから `ℹ️ CMake:` のところをクリック
-   - `Debug` を選択
-7. Build Kits を設定
-   - 🛠️ をクリック
-   - `GCC ~~` を選択
-8. Build の実行
-   - ⚙ をクリック
-9. Target の選択
-   - `[all]` をクリック
-   - `[main]`を選択
-10. Debug の実行
-    - 🐞 をクリック
-11. clang-format のパスを通す
+   - 右下のポップアップで出てくる、「ワークスペース」推奨の拡張機能を入れる
+     - ワークスペース推奨の拡張機能は`.vscode/extensions.json` に書いてある
+     - VSCode は C++のファイルを見つけると`C/C++ Extension Pack` を勧めてくるが、使わない機能が多く含まれているので入れないほうがいい
+6. 拡張機能 : `CMake Tools` の設定
+   - `Select a Kit for open-gl-test` というポップアップで出てきたら、`GCC` から始まるものを選択する
+     - 複数見つかったら、バージョンの新しいものを選択
+   - 下のステータスバーから
+     - `ℹ️ CMake:` → `Debug`
+     - `🛠️` → `GCC ~~`
+     - `[all]` → `[main]`
+7. Build と Debug の実行
+   - 下のステータスバー
+     - 歯車マーク `⚙` → Build が実行される
+     - 虫マーク `🐞` → Debug が実行される
+8. clang-format のパスを通す
+   - `clang-format` があるファイルを探す
+     - `whereis clang-format`
+   - 実行結果をコピーして、
+     - 自分の環境だと `/usr/bin/clang-format`
+   - 設定にパスを書く
+     - ` Ctrl + Shift + P` で出てきた検索バーから、 `settings.json` を検索して開く
+     - ファイルの末尾の `}` の前に一行追加して、 `"clang-format.executable": "/usr/bin/clang-format",` を書き足す
