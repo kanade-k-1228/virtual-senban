@@ -9,12 +9,13 @@
 #include <resize.hpp>
 
 int main(int argc, char* argv[]) {
-  // トップレベルウィンドウ生成
-  glutInit(&argc, argv);                         // GLUTの初期化
-  glutInitWindowPosition(100, 100);              // ウィンドウの場所（モニタ座標上で）
-  glutInitWindowSize(800, 600);                  // ウィンドウサイズ（ピクセル単位）
+  glutInit(&argc, argv);  // GLUTの初期化
+
+  // ウィンドウの生成
+  glutInitWindowPosition(0, 0);                  // ウィンドウの場所（モニタ座標上で）
+  glutInitWindowSize(1920, 1080);                // ウィンドウサイズ（ピクセル単位）
   glutInitDisplayMode(GLUT_RGBA | GLUT_SINGLE);  // デフォルト値
-  glutCreateWindow("OpenGL Test");               // ウィンドウ生成
+  glutCreateWindow("バーチャル旋盤");            // ウィンドウ生成
 
   // コールバック関数登録
   glutDisplayFunc(display);               // ディスプレイの再描画

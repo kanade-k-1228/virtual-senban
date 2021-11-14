@@ -1,12 +1,12 @@
 add_library(
-    instance STATIC 
-    ./cpp/instance.cpp
+    global STATIC 
+    ./cpp/global.cpp
 )
 target_include_directories(
-    instance INTERFACE 
+    global INTERFACE 
     ./hpp
 )
 target_link_libraries(
-    instance
+    global
     object
 )

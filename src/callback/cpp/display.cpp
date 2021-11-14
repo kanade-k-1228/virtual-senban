@@ -3,6 +3,6 @@
 void display() {
   std::cout << "display" << std::endl;
   glClear(GL_COLOR_BUFFER_BIT);
-  Instance::work.draw();
+  Global::work.draw();
   glFlush();
 }

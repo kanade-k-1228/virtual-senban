@@ -1,5 +1,5 @@
 #pragma once
-#include <instance.hpp>
+#include <global.hpp>
 #include <iostream>
 #include <mouse_mapping.hpp>
 

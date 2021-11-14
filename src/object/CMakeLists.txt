@@ -1,6 +1,6 @@
 add_library(
     object STATIC 
-    ./cpp/work.cpp
+    ./cpp/cylinder.cpp
 )
 target_include_directories(
     object INTERFACE 
