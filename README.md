@@ -1,14 +1,30 @@
 # virtual-senban
 
+## 実行
+
+```
+cd
+git clone https://github.com/kanade-k-1228/virtual-senban.git
+cd virtual-senban
+mkdir build
+cmake ..
+make
+```
+
+- OpenGL がなければ、
+  - `sudo apt-get install libglu1-mesa-dev freeglut3-dev mesa-common-dev`
+- CMake がなければ、
+  - `sudo apt-get install cmake`
+
 ## 環境構築
 
 1. このリポジトリをローカルにクローン
    - `cd`
-   - `git clone https://github.com/kanade-k-1228/open-gl-test.git`
+   - `git clone https://github.com/kanade-k-1228/virtual-senban.git`
 2. 各種ツールのインストール
    - g++, gdb, make, cmake, clang-format
    - `sudo apt-get update`
-   - `sudo apt-get install build-essential gdb cmake cmake-format`
+   - `sudo apt-get install build-essential gdb cmake clang-format`
 3. OpenGL のインストール
    - `sudo apt-get install libglu1-mesa-dev freeglut3-dev mesa-common-dev`
 4. VSCode を開く

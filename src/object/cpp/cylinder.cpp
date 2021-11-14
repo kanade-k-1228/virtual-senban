@@ -11,7 +11,8 @@ Cylinder::Cylinder(int axial_slice_number, int axial_slice_step, int initial_rad
 
 void Cylinder::draw() {
   for(int i = 0; i < radiuses.size(); ++i) {
-    if(radiuses.at(i) == 0) break;  // 切り落とされた
+    // TODO FIX 切断がうまくいかない
+    // if(radiuses.at(i) == 0) break;  // 切り落とされた
     // 円盤の描画
     glBegin(GL_LINE_LOOP);
     for(auto point : circulat_slice_direction_vectors) glVertex3d(point.x * radiuses.at(i), point.y * radiuses.at(i), axial_slice_step * i);
