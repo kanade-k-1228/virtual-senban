@@ -3,8 +3,11 @@
 void motion(int x, int y) {
   std::cout << "motion\t(" << x << "," << y << ")" << std::endl;
 
-  // TODO: 前回のマウス位置を記憶する
-  Global::work.cut({x, y}, {x - 1, y});
+  // TODO: FIX 初回のマウス位置を変更
+  Global::prev_mouse = Global::current_mouse;
+  Global::current_mouse = {x, y};
+
+  Global::work.cut(Global::prev_mouse, Global::current_mouse);
 
   glClear(GL_COLOR_BUFFER_BIT);
   Global::work.draw();
