@@ -1,10 +1,10 @@
 add_library(
     global STATIC 
-    ./cpp/global.cpp
+    cpp/global.cpp
 )
 target_include_directories(
     global INTERFACE 
-    ./hpp
+    hpp
 )
 target_link_libraries(
     global

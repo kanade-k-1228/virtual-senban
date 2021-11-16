@@ -1,16 +1,16 @@
 add_library(
     callback STATIC 
-    ./cpp/initialize.cpp
-    ./cpp/display.cpp 
-    ./cpp/keyboard.cpp
-    ./cpp/motion.cpp
-    ./cpp/mouse.cpp 
-    ./cpp/passive_motion.cpp 
-    ./cpp/resize.cpp
+    cpp/initialize.cpp
+    cpp/display.cpp 
+    cpp/keyboard.cpp
+    cpp/motion.cpp
+    cpp/mouse.cpp 
+    cpp/passive_motion.cpp 
+    cpp/resize.cpp
 )
 target_include_directories(
     callback INTERFACE
-    ./hpp
+    hpp
 )
 target_link_libraries(
     callback
