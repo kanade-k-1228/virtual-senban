@@ -22,32 +22,42 @@ void Cylinder::draw() {
   }
 }
 
-void Cylinder::cut(Cylinderical point1, Cylinderical point2) {
+void Cylinder::cut_point(Cylinderical point) {
+  if(point.z < 0 || axial_slice_number <= point.z) return;
+  if(radiuses.at(point.z) > point.r) radiuses.at(point.z) = point.r;
+}
+
+void Cylinder::add_point(Cylinderical point) {
+  if(point.z < 0 || axial_slice_number <= point.z) return;
+  if(radiuses.at(point.z) < point.r) radiuses.at(point.z) = point.r;
+}
+
+void Cylinder::cut_path(Cylinderical point1, Cylinderical point2) {
   if(point1.z == point2.z) {
-    int z = point1.z;
-    double radius = std::min(point1.r, point2.r);
-    if(z < 0 || axial_slice_number <= z) return;
-    if(radiuses.at(z) > radius) radiuses.at(z) = radius;
+    cut_point(point1);
+    cut_point(point2);
     return;
   }
-
   double dydx = (point1.r - point2.r) / (point1.z - point2.z);
-  Cylinderical start, end;
-
-  if(point1.z < point2.z) {
-    start = point1;
-    end = point2;
-  } else {
-    start = point2;
-    end = point1;
-  }
-
+  Cylinderical start = (point1.z < point2.z ? point1 : point2);
+  Cylinderical end = (point1.z < point2.z ? point2 : point1);
   for(int z = start.z; z <= end.z; ++z) {
-    if(z < 0 || axial_slice_number <= z) continue;
-    double radius = start.r + dydx * (z - start.z);
-    if(radiuses.at(z) > radius) radiuses.at(z) = radius;
+    cut_point({z, start.r + dydx * (z - start.z)});
   }
-  return;
+}
+
+void Cylinder::add_path(Cylinderical point1, Cylinderical point2) {
+  if(point1.z == point2.z) {
+    add_point(point1);
+    add_point(point2);
+    return;
+  }
+  double dydx = (point1.r - point2.r) / (point1.z - point2.z);
+  Cylinderical start = (point1.z < point2.z ? point1 : point2);
+  Cylinderical end = (point1.z < point2.z ? point2 : point1);
+  for(int z = start.z; z <= end.z; ++z) {
+    add_point({z, start.r + dydx * (z - start.z)});
+  }
 }
 
 void Cylinder::reset() {

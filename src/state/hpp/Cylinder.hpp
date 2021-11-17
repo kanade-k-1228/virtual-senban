@@ -16,7 +16,13 @@ class Cylinder {
 
 public:
   Cylinder(int, int, int, int);
+  enum ReshapeDirection { CUT,
+                          ADD };
   void draw();
-  void cut(Cylinderical, Cylinderical);
+  void cut_point(Cylinderical);
+  void add_point(Cylinderical);
+  void cut_path(Cylinderical, Cylinderical);
+  void add_path(Cylinderical, Cylinderical);
+  void reshape(Cylinderical, Cylinderical, ReshapeDirection);
   void reset();
 };
