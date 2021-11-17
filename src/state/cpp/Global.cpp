@@ -28,8 +28,8 @@ void Global::draw() {
   glClear(GL_COLOR_BUFFER_BIT);
   work.draw();
   glFlush();
-  bite.draw(display_to_world(mouse.current));
-  glFlush();
   helping.draw(window.size);
+  glFlush();
+  bite.draw(display_to_world(mouse.current));
   glFlush();
 }

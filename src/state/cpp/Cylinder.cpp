@@ -20,6 +20,14 @@ void Cylinder::draw() {
       glVertex3d(point.x * radiuses.at(i), point.y * radiuses.at(i), axial_slice_step * i);
     glEnd();
   }
+      glBegin(GL_LINE_LOOP);
+      glVertex3d(0,0,0);
+      for(int i = 0; i < radiuses.size(); ++i)
+      glVertex3d(cylinderical_to_world({i,radiuses.at(i)}).x,cylinderical_to_world({i,radiuses.at(i)}).y,cylinderical_to_world({i,radiuses.at(i)}).z);
+      // glVertex3d(cylinderical_to_world({axial_slice_number,0}).x,cylinderical_to_world({axial_slice_number,0}).y,cylinderical_to_world({axial_slice_number,0}).z);
+      glVertex3d(0,0,cylinderical_to_world({axial_slice_number,0}).z);
+      glEnd();
+
 }
 
 void Cylinder::cut_point(Cylinderical point) {

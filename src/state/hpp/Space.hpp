@@ -19,6 +19,6 @@ struct Cylinderical {
 World display_to_world(Display);
 Display world_to_display(World);
 Cylinderical world_to_cylinderical(World);
-// World cylinderical_to_world(Cylinderical);
+World cylinderical_to_world(Cylinderical);
 // Display cylinderical_to_display(Cylinderical);
 Cylinderical display_to_cylinderical(Display);
