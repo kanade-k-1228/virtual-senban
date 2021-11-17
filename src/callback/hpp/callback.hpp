@@ -1,7 +1,0 @@
-#include "idle.hpp"
-#include "initialize.hpp"
-#include "keyboard.hpp"
-#include "motion.hpp"
-#include "mouse.hpp"
-#include "passive_motion.hpp"
-#include "resize.hpp"

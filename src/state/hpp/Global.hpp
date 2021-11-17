@@ -25,5 +25,7 @@ extern RealBite real_bite;
 void draw();
 
 // 初期化関数
-void init();
+void init_serial();
+void init_object();
+
 }  // namespace Global

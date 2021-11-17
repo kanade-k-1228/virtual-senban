@@ -26,7 +26,9 @@ void Global::draw() {
 }
 
 // 初期化関数
-void Global::init() {
-  work.reset();
+void Global::init_serial(){
   real_bite.init();
+}
+void Global::init_object() {
+  work.reset();
 }
