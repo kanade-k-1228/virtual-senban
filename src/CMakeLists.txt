@@ -5,9 +5,8 @@ project(open-gl-test)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${ADDITIONAL_CFLAGS} -g")
 set(CMAKE_CXX_STANDARD 17)
 
-#
-add_subdirectory(src/state)
-add_subdirectory(src/callback)
+add_subdirectory(state)
+add_subdirectory(callback)
 
 find_package(OpenGL REQUIRED)
 find_package(GLUT REQUIRED)
