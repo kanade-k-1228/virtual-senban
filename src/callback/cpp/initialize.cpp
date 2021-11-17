@@ -1,4 +1,4 @@
-#define IS_FULL_SCREEN
+// #define IS_FULL_SCREEN
 // #define USE_SERIAL
 
 #include "../hpp/initialize.hpp"
