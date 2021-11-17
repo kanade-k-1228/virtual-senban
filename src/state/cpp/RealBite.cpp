@@ -14,8 +14,9 @@ void RealBite::init() {
 
   // Open Serial
   if(!serial.open(list[port], 9600)) {
-    std::cout<<"Serial Connect Failed"<<std::endl;
-    return;}
+    std::cout << "Serial Connect Failed" << std::endl;
+    return;
+  }
   //SerialInfo構造体にポート名とデバイス名が入っている
   SerialInfo info = serial.getInfo();
   std::cout << "open success" << std::endl;
