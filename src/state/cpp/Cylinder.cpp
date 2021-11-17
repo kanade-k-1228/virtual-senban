@@ -15,40 +15,46 @@ void Cylinder::draw() {
     // if(radiuses.at(i) == 0) break;  // 切り落とされた
     // 円盤の描画
     glBegin(GL_LINE_LOOP);
-    for(auto point : circulat_slice_direction_vectors) glVertex3d(point.x * radiuses.at(i), point.y * radiuses.at(i), axial_slice_step * i);
+    for(auto point : circulat_slice_direction_vectors)
+      glVertex3d(point.x * radiuses.at(i), point.y * radiuses.at(i), axial_slice_step * i);
     glEnd();
   }
 }
 
-void Cylinder::cut(Point2D<int> point1, Point2D<int> point2) {
-  std::cout << "cut\t(" << point1.x << "," << point1.y << ")~(" << point2.x << "," << point2.y << ")" << std::endl;
-  point1.x /= axial_slice_step;
-  point2.x /= axial_slice_step;
+void Cylinder::cut(Point3D<int> point1, Point3D<int> point2) {
+  int index1 = point1.z / axial_slice_step;
+  int index2 = point2.z / axial_slice_step;
+  double radius1 = sqrt(point1.x * point1.x + point1.y * point1.y);
+  double radius2 = sqrt(point2.x * point2.x + point2.y * point2.y);
 
-  if(point1.x - point2.x == 0) {
-    int x = point1.x;
-    int y = std::min(point1.y, point2.y);
-    if(x < 0 || axial_slice_number <= x) return;
-    if(radiuses.at(x) > y) radiuses.at(x) = y;
+  if(index1 == index2) {
+    int index = index1;
+    double radius = std::min(radius1, radius2);
+    if(index < 0 || axial_slice_number <= index) return;
+    if(radiuses.at(index) > radius) radiuses.at(index) = radius;
     return;
   }
 
-  double dydx = (double)(point1.y - point2.y) / (point1.x - point2.x);
+  double dydx = (radius1 - radius2) / (index1 - index2);
+  int index_start, index_end;
+  double radius_start, radius_end;
   Point2D<int> start, end;
-
-  if(point1.x < point2.x) {
-    start = point1;
-    end = point2;
+  if(index1 < index2) {
+    index_start = index1;
+    index_end = index2;
+    radius_start = radius1;
+    radius_end = radius2;
   } else {
-    start = point2;
-    end = point1;
+    index_start = index2;
+    index_end = index1;
+    radius_start = radius2;
+    radius_end = radius1;
   }
 
-  for(int x = start.x; x <= end.x; ++x) {
-    if(x < 0 || axial_slice_number <= x) continue;
-    double radius = start.y + dydx * (x - start.x);
-    std::cout << radius << std::endl;
-    if(radiuses.at(x) > radius) radiuses.at(x) = radius;
+  for(int i = index_start; i <= index_end; ++i) {
+    if(i < 0 || axial_slice_number <= i) continue;
+    double radius = radius_start + dydx * (i - index_start);
+    if(radiuses.at(i) > radius) radiuses.at(i) = radius;
   }
   return;
 }

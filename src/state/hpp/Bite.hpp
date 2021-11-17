@@ -1,9 +1,9 @@
 #pragma once
-#include "Point.hpp"
+#include "Space.hpp"
 #include <GL/glut.h>
 #include <iostream>
 
 class Bite {
 public:
-  void draw(Point3D<int>);
+  void draw(World);
 };
