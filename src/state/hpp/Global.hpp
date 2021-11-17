@@ -3,6 +3,7 @@
 #include "Camera.hpp"
 #include "Cylinder.hpp"
 #include "Mouse.hpp"
+#include "RealBite.hpp"
 #include "Space.hpp"
 #include "Window.hpp"
 
@@ -18,6 +19,7 @@ void cut();
 
 // バイト
 extern Bite bite;
+extern RealBite real_bite;
 
 // 描画関数
 void draw();

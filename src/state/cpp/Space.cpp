@@ -18,5 +18,5 @@ Cylinderical world_to_cylinderical(World world) {
 // Display cylinderical_to_display(Cylinderical) {}
 
 Cylinderical display_to_cylinderical(Display display) {
-  return {display.x, display.y};
+  return {std::floor(display.x / axial_slice_step), display.y};
 }

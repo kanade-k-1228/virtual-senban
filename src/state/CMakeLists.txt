@@ -7,3 +7,7 @@ target_include_directories(
     state INTERFACE 
     hpp
 )
+target_link_libraries(
+    state
+    SerialPort
+)

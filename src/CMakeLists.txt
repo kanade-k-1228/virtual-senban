@@ -7,6 +7,7 @@ set(CMAKE_CXX_STANDARD 17)
 
 add_subdirectory(state)
 add_subdirectory(callback)
+add_subdirectory(SerialPort)
 
 find_package(OpenGL REQUIRED)
 find_package(GLUT REQUIRED)

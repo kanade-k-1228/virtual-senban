@@ -15,6 +15,7 @@ void Global::cut() {
   work.cut(display_to_cylinderical(mouse.prev), display_to_cylinderical(mouse.current));
 };
 Bite Global::bite = Bite();
+RealBite Global::real_bite = RealBite();
 
 // 描画関数
 void Global::draw() {
@@ -27,4 +28,5 @@ void Global::draw() {
 // 初期化関数
 void Global::init() {
   work.reset();
+  real_bite.init();
 }
