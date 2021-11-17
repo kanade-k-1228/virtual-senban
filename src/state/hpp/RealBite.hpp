@@ -7,8 +7,10 @@
 class RealBite {
   Serial serial;
   int port;
+  int range;
 
 public:
+  RealBite(int);
   void init();
   void move(int);
 };

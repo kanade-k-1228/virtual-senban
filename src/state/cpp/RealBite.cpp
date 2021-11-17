@@ -1,5 +1,7 @@
 #include "../hpp/RealBite.hpp"
 
+RealBite::RealBite(int range) : range(range) {}
+
 void RealBite::init() {
   auto list = getSerialList();
   int i = 0;
@@ -9,7 +11,7 @@ void RealBite::init() {
               << "name:" << info.port() << std::endl;
     i++;
   }
-  std::cout << "Select Port Number" << std::endl;
+  std::cout << "Select Port Number 0~" << i << " > " << std::flush;
   std::cin >> port;
 
   // Open Serial
@@ -26,4 +28,6 @@ void RealBite::init() {
 }
 
 void RealBite::move(int x) {
+  unsigned char message = 0x000000FF & (x / range);
+  serial.write(&message, 1);
 }
