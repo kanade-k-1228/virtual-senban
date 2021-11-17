@@ -9,12 +9,12 @@ void resize(const GLsizei width, const GLsizei height) {
   // 視点の設定
   glMatrixMode(GL_MODELVIEW);
   glLoadIdentity();
-  gluLookAt(Global::camera_position.x, Global::camera_position.y, Global::camera_position.z,
-            Global::camera_target.x, Global::camera_target.y, Global::camera_target.z,
-            Global::camera_posture.x, Global::camera_posture.y, Global::camera_posture.z);
+  gluLookAt(Global::camera.position.x, Global::camera.position.y, Global::camera.position.z,
+            Global::camera.target.x, Global::camera.target.y, Global::camera.target.z,
+            Global::camera.posture.x, Global::camera.posture.y, Global::camera.posture.z);
 
   // 視野領域の設定
   glMatrixMode(GL_PROJECTION);
   glLoadIdentity();
-  gluPerspective(Global::camera_viewing_angle, (double)width / height, Global::camera_render_min, Global::camera_render_max);
+  gluPerspective(Global::camera.viewing_angle, (double)width / height, Global::camera.render_min, Global::camera.render_max);
 }

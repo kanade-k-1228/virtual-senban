@@ -6,7 +6,8 @@ Cylinder::Cylinder(int axial_slice_number, int axial_slice_step, int initial_rad
       circulat_slice_direction_vectors(circular_slice_number),
       radiuses(axial_slice_number, initial_radius) {
   const double angle = 2 * M_PI / circular_slice_number;
-  for(int i = 0; i < circular_slice_number; ++i) circulat_slice_direction_vectors.at(i) = {std::cos(angle * i), std::sin(angle * i)};
+  for(int i = 0; i < circular_slice_number; ++i)
+    circulat_slice_direction_vectors.at(i) = {std::cos(angle * i), std::sin(angle * i)};
 }
 
 void Cylinder::draw() {
@@ -21,44 +22,34 @@ void Cylinder::draw() {
   }
 }
 
-void Cylinder::cut(Point3D<int> point1, Point3D<int> point2) {
-  int index1 = point1.z / axial_slice_step;
-  int index2 = point2.z / axial_slice_step;
-  double radius1 = sqrt(point1.x * point1.x + point1.y * point1.y);
-  double radius2 = sqrt(point2.x * point2.x + point2.y * point2.y);
-
-  if(index1 == index2) {
-    int index = index1;
-    double radius = std::min(radius1, radius2);
-    if(index < 0 || axial_slice_number <= index) return;
-    if(radiuses.at(index) > radius) radiuses.at(index) = radius;
+void Cylinder::cut(Cylinderical point1, Cylinderical point2) {
+  if(point1.z == point2.z) {
+    int z = point1.z;
+    double radius = std::min(point1.r, point2.r);
+    if(z < 0 || axial_slice_number <= z) return;
+    if(radiuses.at(z) > radius) radiuses.at(z) = radius;
     return;
   }
 
-  double dydx = (radius1 - radius2) / (index1 - index2);
-  int index_start, index_end;
-  double radius_start, radius_end;
-  Point2D<int> start, end;
-  if(index1 < index2) {
-    index_start = index1;
-    index_end = index2;
-    radius_start = radius1;
-    radius_end = radius2;
+  double dydx = (point1.r - point2.r) / (point1.z - point2.z);
+  Cylinderical start, end;
+
+  if(point1.z < point2.z) {
+    start = point1;
+    end = point2;
   } else {
-    index_start = index2;
-    index_end = index1;
-    radius_start = radius2;
-    radius_end = radius1;
+    start = point2;
+    end = point1;
   }
 
-  for(int i = index_start; i <= index_end; ++i) {
-    if(i < 0 || axial_slice_number <= i) continue;
-    double radius = radius_start + dydx * (i - index_start);
-    if(radiuses.at(i) > radius) radiuses.at(i) = radius;
+  for(int z = start.z; z <= end.z; ++z) {
+    if(z < 0 || axial_slice_number <= z) continue;
+    double radius = start.r + dydx * (z - start.z);
+    if(radiuses.at(z) > radius) radiuses.at(z) = radius;
   }
   return;
 }
 
 void Cylinder::reset() {
-  for(int i = 0; i < radiuses.size(); ++i) radiuses.at(i) = initial_radius;
+  for(int z = 0; z < radiuses.size(); ++z) radiuses.at(z) = initial_radius;
 }

@@ -19,7 +19,7 @@ int main(int argc, char* argv[]) {
 
   // コールバック関数登録
   // https://www.opengl.org/resources/libraries/glut/spec3/node45.html
-  glutDisplayFunc(display);  // ディスプレイの再描画
+  // glutDisplayFunc(display);  // ディスプレイの再描画
   // glutOverlayDisplayFunc();
   glutReshapeFunc(resize);                // ディスプレイサイズの変更
   glutKeyboardFunc(keyboard);             // キーボード

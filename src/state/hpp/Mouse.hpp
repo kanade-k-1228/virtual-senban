@@ -4,5 +4,5 @@
 struct Mouse {
   Window current;
   Window prev;
-  void set_mouse(int, int, bool);
+  void set(int, int, bool);
 };
