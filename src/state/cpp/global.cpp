@@ -14,6 +14,27 @@ int Global::camera_render_max = 8000;                     // 最大描画距離
 // マウス
 Point2D<int> Global::current_mouse = {0, 0};
 Point2D<int> Global::prev_mouse = {0, 0};
+void Global::set_mouse(int x, int y, bool is_first) {
+  prev_mouse = (is_first ? (Point2D<int>){x, y} : current_mouse);
+  current_mouse = {x, y};
+}
 
-// オブジェクト
+// 円柱ワーク
 Cylinder Global::work = Cylinder(190, 10, 1080, 30);
+void Global::cut() {
+  work.cut(prev_mouse, current_mouse);
+};
+Bite Global::bite = Bite();
+
+// 描画関数
+void Global::draw() {
+  glClear(GL_COLOR_BUFFER_BIT);
+  work.draw();
+  bite.draw(current_mouse);
+  glFlush();
+}
+
+// 初期化関数
+void Global::init() {
+  work.reset();
+}

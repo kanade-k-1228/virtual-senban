@@ -50,7 +50,6 @@ void Cylinder::cut(Point2D<int> point1, Point2D<int> point2) {
     std::cout << radius << std::endl;
     if(radiuses.at(x) > radius) radiuses.at(x) = radius;
   }
-
   return;
 }
 

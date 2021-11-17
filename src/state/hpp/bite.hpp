@@ -1,12 +1,9 @@
 #pragma once
+#include "point.hpp"
 #include <GL/glut.h>
 #include <iostream>
-#include <point.hpp>
 
 class Bite {
-  Point2D<int> position;
-
 public:
-  Bite();
-  void draw();
+  void draw(Point2D<int>);
 };

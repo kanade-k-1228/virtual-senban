@@ -1,9 +1,9 @@
 #pragma once
+#include "point.hpp"
 #include <GL/glut.h>
 #include <cmath>
 #include <iostream>
 #include <math.h>
-#include <point.hpp>
 #include <vector>
 
 class Cylinder {

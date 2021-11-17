@@ -1,13 +1,9 @@
 file(GLOB cpp_files "cpp/*.cpp")
 add_library(
-    callback STATIC 
+    state STATIC 
     ${cpp_files}
 )
 target_include_directories(
-    callback INTERFACE
+    state INTERFACE 
     hpp
-)
-target_link_libraries(
-    callback
-    state
 )
