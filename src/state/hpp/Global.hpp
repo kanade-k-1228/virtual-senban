@@ -4,6 +4,7 @@
 #include "Cylinder.hpp"
 #include "Mouse.hpp"
 #include "Space.hpp"
+#include "Window.hpp"
 
 namespace Global {
 

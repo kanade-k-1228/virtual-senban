@@ -2,7 +2,7 @@
 #include "Space.hpp"
 
 struct Mouse {
-  Window current;
-  Window prev;
+  Display current;
+  Display prev;
   void set(int, int, bool);
 };

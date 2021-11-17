@@ -1,4 +1,3 @@
-#include "display.hpp"
 #include "idle.hpp"
 #include "initialize.hpp"
 #include "keyboard.hpp"
