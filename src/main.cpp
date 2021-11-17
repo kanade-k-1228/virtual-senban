@@ -25,12 +25,27 @@ int main(int argc, char* argv[]) {
 #endif
 
   // コールバック関数登録
-  glutDisplayFunc(display);               // ディスプレイの再描画
+  // https://www.opengl.org/resources/libraries/glut/spec3/node45.html
+  glutDisplayFunc(display);  // ディスプレイの再描画
+  // glutOverlayDisplayFunc();
   glutReshapeFunc(resize);                // ディスプレイサイズの変更
+  glutKeyboardFunc(keyboard);             // キーボード
   glutMouseFunc(mouse);                   // マウスボタン
   glutMotionFunc(motion);                 // マウスの動き
   glutPassiveMotionFunc(passive_motion);  // マウスの動く
-  glutKeyboardFunc(keyboard);             // キーボード
+  // glutVisibilityFunc();
+  // glutEntryFunc();
+  // glutSpecialFunc();
+  // glutSpaceballMotionFunc();
+  // glutSpaceballRotateFunc();
+  // glutSpaceballButtonFunc();
+  // glutButtonBoxFunc();
+  // glutDialsFunc();
+  // glutTabletMotionFunc();
+  // glutTabletButtonFunc();
+  // glutMenuStatusFunc();
+  // glutIdleFunc();
+  // glutTimerFunc();
 
   initialize();    // 初期化
   glutMainLoop();  // メインループ
