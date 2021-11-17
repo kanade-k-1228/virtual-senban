@@ -2,4 +2,4 @@
 #include <Global.hpp>
 #include <iostream>
 
-void motion(int, int);
+void motion(const int, const int);

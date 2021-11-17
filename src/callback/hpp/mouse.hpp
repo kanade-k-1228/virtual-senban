@@ -3,4 +3,4 @@
 #include <Global.hpp>
 #include <iostream>
 
-void mouse(int, int, int, int);
+void mouse(const int, const int, const int, const int);

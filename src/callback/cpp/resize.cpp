@@ -17,4 +17,7 @@ void resize(const GLsizei width, const GLsizei height) {
   glMatrixMode(GL_PROJECTION);
   glLoadIdentity();
   gluPerspective(Global::camera.viewing_angle, (double)width / height, Global::camera.render_min, Global::camera.render_max);
+
+  // 再描画
+  Global::draw();
 }

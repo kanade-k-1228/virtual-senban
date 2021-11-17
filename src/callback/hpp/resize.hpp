@@ -3,4 +3,4 @@
 #include <Global.hpp>
 #include <iostream>
 
-void resize(GLsizei, GLsizei);
+void resize(const GLsizei, const GLsizei);

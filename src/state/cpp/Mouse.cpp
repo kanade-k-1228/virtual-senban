@@ -1,6 +1,11 @@
 #include "../hpp/Mouse.hpp"
 
-void Mouse::set(int x, int y, bool is_first) {
-  prev = (is_first ? (Display){x, y} : current);
+void Mouse::start_path(int x, int y) {
+  prev = {x, y};
+  current = {x, y};
+}
+
+void Mouse::next_path_point(int x, int y) {
+  prev = current;
   current = {x, y};
 }

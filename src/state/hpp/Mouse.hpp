@@ -4,5 +4,6 @@
 struct Mouse {
   Display current;
   Display prev;
-  void set(int, int, bool);
+  void start_path(int, int);
+  void next_path_point(int, int);
 };

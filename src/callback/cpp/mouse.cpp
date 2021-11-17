@@ -1,5 +1,10 @@
 #include "../hpp/mouse.hpp"
 
-void mouse(int button, int state, int x, int y) {
-  Global::mouse.set(x, y, true);
+void mouse(const int button, const int state, const int x, const int y) {
+  Global::mouse.start_path(x, y);
+  if(button == GLUT_LEFT_BUTTON) {
+  } else if(button == GLUT_MIDDLE_BUTTON) {
+  } else if(button == GLUT_RIGHT_BUTTON) {
+  }
+  Global::draw();
 }

@@ -1,6 +1,7 @@
 #include "../hpp/motion.hpp"
 
-void motion(int x, int y) {
-  Global::mouse.set(x, y, false);
+void motion(const int x, const int y) {
+  Global::mouse.next_path_point(x, y);
   Global::cut();
+  Global::draw();
 }

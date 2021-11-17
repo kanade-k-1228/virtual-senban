@@ -6,7 +6,7 @@ Mouse Global::mouse = {{0, 0}, {0, 0}};
 Cylinder Global::work = Cylinder(190, 10, 1080, 30);
 Bite Global::bite = Bite();
 RealBite Global::real_bite = RealBite(32);
-
+Helping Global::helping = Helping();
 void Global::init_serial() {
   real_bite.init();
 }
@@ -27,6 +27,9 @@ void Global::add() {
 void Global::draw() {
   glClear(GL_COLOR_BUFFER_BIT);
   work.draw();
+  glFlush();
   bite.draw(display_to_world(mouse.current));
+  glFlush();
+  helping.draw(window.size);
   glFlush();
 }
