@@ -1,6 +1,6 @@
 #pragma once
-#include "bite.hpp"
-#include "cylinder.hpp"
+#include "Bite.hpp"
+#include "Cylinder.hpp"
 
 namespace Global {
 // ウィンドウ

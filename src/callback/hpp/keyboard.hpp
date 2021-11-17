@@ -1,5 +1,5 @@
 #pragma once
-#include <global.hpp>
+#include <Global.hpp>
 #include <iostream>
 
 void keyboard(const unsigned char, const int, const int);

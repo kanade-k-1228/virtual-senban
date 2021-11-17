@@ -5,5 +5,4 @@ void motion(int x, int y) {
 
   Global::set_mouse(x, y, false);
   Global::cut();
-  Global::draw();
 }

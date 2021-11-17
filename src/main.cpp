@@ -1,14 +1,7 @@
 // #define IS_FULL_SCREEN
 
 #include <GL/glut.h>
-#include <display.hpp>
-#include <initialize.hpp>
-#include <iostream>
-#include <keyboard.hpp>
-#include <motion.hpp>
-#include <mouse.hpp>
-#include <passive_motion.hpp>
-#include <resize.hpp>
+#include <callback.hpp>
 
 int main(int argc, char* argv[]) {
   glutInit(&argc, argv);  // GLUTの初期化
@@ -44,7 +37,7 @@ int main(int argc, char* argv[]) {
   // glutTabletMotionFunc();
   // glutTabletButtonFunc();
   // glutMenuStatusFunc();
-  // glutIdleFunc();
+  glutIdleFunc(idle);  // アイドル状態のときに実行
   // glutTimerFunc();
 
   initialize();    // 初期化

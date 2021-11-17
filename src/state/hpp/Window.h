@@ -1,4 +1,4 @@
-#include "point.hpp"
+#include "Point.hpp"
 
 struct Window {
   Point2D<int> window;

@@ -1,5 +1,5 @@
 #pragma once
-#include "point.hpp"
+#include "Point.hpp"
 #include <GL/glut.h>
 #include <cmath>
 #include <iostream>

@@ -1,4 +1,4 @@
-#include "../hpp/cylinder.hpp"
+#include "../hpp/Cylinder.hpp"
 
 // 軸方向の分割数, 軸方向の分割間隔, 加工前の半径, 円の分割数
 Cylinder::Cylinder(int axial_slice_number, int axial_slice_step, int initial_radius, int circular_slice_number)
