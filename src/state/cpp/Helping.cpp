@@ -3,7 +3,6 @@
 Helping::Helping() {}
 
 void Helping::draw(Display mouse_move_area) {
-  std::cout << "helping" << std::endl;
   World max_end = display_to_world(mouse_move_area);
 
   // glBegin(GL_LINE_LOOP);
@@ -13,8 +12,10 @@ void Helping::draw(Display mouse_move_area) {
   // glVertex3d(0, 0, max_end.z);
   // glEnd();
 
-  glBegin(GL_LINE);
-  glVertex3d(0, 0, -100);
+  glLineWidth(10);
+  glBegin(GL_LINE_LOOP);
+  glVertex3d(0, 0, -3000);
   glVertex3d(0, 0, 3000);
   glEnd();
+  glLineWidth(1);
 }

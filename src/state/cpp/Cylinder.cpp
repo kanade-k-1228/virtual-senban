@@ -21,7 +21,7 @@ void Cylinder::draw() {
     glEnd();
   }
   for(auto point : circular_slice_direction_vectors) {
-    glBegin(GL_LINE);
+    glBegin(GL_LINE_LOOP);
     glVertex3d(0, 0, 0);
     for(int i = 0; i < radiuses.size(); ++i)
       glVertex3d(point.x * radiuses.at(i), point.y * radiuses.at(i), axial_slice_step * i);

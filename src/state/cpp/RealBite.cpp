@@ -11,7 +11,7 @@ void RealBite::init() {
               << "name:" << info.port() << std::endl;
     i++;
   }
-  std::cout << "Select Port Number 0~" << i << " > " << std::flush;
+  std::cout << "Select Port Number 0~" << --i << " > " << std::flush;
   std::cin >> port;
 
   // Open Serial
@@ -28,6 +28,8 @@ void RealBite::init() {
 }
 
 void RealBite::move(int x) {
-  unsigned char message = 0x000000FF & (x / range);
-  serial.write(&message, 1);
+  unsigned char message[2]; 
+  message[0]=(unsigned char)100;
+  message[1]='\n';
+  serial.write(message, 2);
 }
