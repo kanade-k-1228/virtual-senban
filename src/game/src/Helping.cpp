@@ -1,4 +1,4 @@
-#include "../hpp/Helping.hpp"
+#include "../include/Helping.hpp"
 
 Helping::Helping() {}
 

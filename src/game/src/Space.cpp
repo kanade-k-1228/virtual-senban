@@ -1,4 +1,4 @@
-#include "../hpp/Space.hpp"
+#include "../include/Space.hpp"
 
 double axial_slice_step = 10;
 
@@ -15,7 +15,7 @@ Cylinderical world_to_cylinderical(World world) {
 }
 
 World cylinderical_to_world(Cylinderical cylinderical) {
-  return {-cylinderical.r,0,cylinderical.z*axial_slice_step};
+  return {-cylinderical.r, 0, cylinderical.z * axial_slice_step};
 }
 // Display cylinderical_to_display(Cylinderical) {}
 

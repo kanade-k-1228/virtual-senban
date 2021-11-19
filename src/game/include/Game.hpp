@@ -8,7 +8,7 @@
 #include "Space.hpp"
 #include "Window.hpp"
 
-namespace Global {
+namespace Game {
 // 状態
 extern Window window;       // ウィンドウ
 extern Camera camera;       // カメラ
@@ -22,4 +22,4 @@ void init_object();         // 描画の初期化
 void cut();                 // 切削
 void add();                 // 付加
 void draw();                // 描画関数
-}  // namespace Global
+}  // namespace Game

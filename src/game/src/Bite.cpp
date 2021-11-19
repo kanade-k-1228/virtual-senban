@@ -1,4 +1,4 @@
-#include "../hpp/Bite.hpp"
+#include "../include/Bite.hpp"
 
 void Bite::draw(World point) {
   glPointSize(10);

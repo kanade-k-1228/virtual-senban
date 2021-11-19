@@ -1,4 +1,4 @@
-#include "../hpp/RealBite.hpp"
+#include "../include/RealBite.hpp"
 
 RealBite::RealBite(int range) : range(range) {}
 
@@ -28,8 +28,8 @@ void RealBite::init() {
 }
 
 void RealBite::move(int x) {
-  unsigned char message[2]; 
-  message[0]=(unsigned char)100;
-  message[1]='\n';
+  unsigned char message[2];
+  message[0] = (unsigned char)100;
+  message[1] = '\n';
   serial.write(message, 2);
 }

@@ -4,6 +4,8 @@
         "ms-vscode.cmake-tools",
         "twxs.cmake",
         "xaver.clang-format",
-        "aaron-bond.better-comments"
+        "aaron-bond.better-comments",
+        "shd101wyy.markdown-preview-enhanced",
+        "jebbs.plantuml"
     ]
 }
