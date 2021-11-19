@@ -1,9 +1,9 @@
-#include "../include/Helping.hpp"
+#include "../include/Game.hpp"
 
 Helping::Helping() {}
 
-void Helping::draw(Display mouse_move_area) {
-  World max_end = display_to_world(mouse_move_area);
+void Helping::draw(Space::Display mouse_move_area) {
+  // Space::World max_end = Space::display_to_world(mouse_move_area);
 
   // glBegin(GL_LINE_LOOP);
   // glVertex3d(0, 0, 0);

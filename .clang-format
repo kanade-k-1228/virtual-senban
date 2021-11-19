@@ -16,6 +16,7 @@ AccessModifierOffset: -2
 AllowShortFunctionsOnASingleLine: true
 AllowShortIfStatementsOnASingleLine: true
 AllowShortLoopsOnASingleLine: true
+AllowShortEnumsOnASingleLine: true
 
 SpacesBeforeTrailingComments: 2
 CommentPragmas: '[!\*]'

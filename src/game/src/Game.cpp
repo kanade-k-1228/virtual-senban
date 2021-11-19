@@ -1,12 +1,14 @@
 #include "../include/Game.hpp"
 
-Window Game::window = {{1920, 1080}};
-Camera Game::camera = {{-5000, 1000, 3000}, {0, 0, 1000}, {0, 1, 0}, 30, 1, 10000};
-Mouse Game::mouse = {{0, 0}, {0, 0}};
-Cylinder Game::work = Cylinder(190, 10, 1080, 10);
-Bite Game::bite = Bite();
-RealBite Game::real_bite = RealBite(32);
-Helping Game::helping = Helping();
+Game::Game()
+    : window({{1920, 1080}}),
+      camera({{-5000, 2000, 3000}, {0, 0, 1000}, {0, 1, 0}, 30, 1, 10000}),
+      mouse({{0, 0}, {0, 0}}),
+      work(190, 10, 1080, 10),
+      bite(),
+      real_bite(32),
+      helping() {}
+
 void Game::init_serial() {
   real_bite.init();
 }

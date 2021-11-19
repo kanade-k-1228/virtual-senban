@@ -1,4 +1,4 @@
-#include "../include/Mouse.hpp"
+#include "../include/Game.hpp"
 
 void Mouse::start_path(int x, int y) {
   prev = {x, y};

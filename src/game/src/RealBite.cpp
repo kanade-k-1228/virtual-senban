@@ -1,4 +1,4 @@
-#include "../include/RealBite.hpp"
+#include "../include/Game.hpp"
 
 RealBite::RealBite(int range) : range(range) {}
 

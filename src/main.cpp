@@ -1,23 +1,21 @@
 #include <GL/glut.h>
 #include <Game.hpp>
 
-int main(int argc, char* argv[]) {
-  glutInit(&argc, argv);  // GLUTの初期化
+Game game;
 
-#ifdef USE_SERIAL
-  Game::init_serial();  // シリアル通信の初期化
-#endif
+int main(int argc, char* argv[]) {
+  // GLUTの初期化
+  glutInit(&argc, argv);
+
+  // シリアル通信の初期化
+  // game.init_serial();
 
   // ウィンドウの生成
-  glutInitWindowPosition(0, 0);                                  // ウィンドウの場所（モニタ座標上で）
-  glutInitWindowSize(Game::window.size.x, Game::window.size.y);  // ウィンドウサイズ（ピクセル単位）
-  glutInitDisplayMode(GLUT_RGBA | GLUT_SINGLE);                  // デフォルト値
-
-#ifdef IS_FULL_SCREEN
-  glutEnterGameMode();  // フルスクリーンモードで開始
-#else
-  glutCreateWindow("バーチャル旋盤");  // ウィンドウ生成
-#endif
+  glutInitWindowPosition(0, 0);                                // ウィンドウの場所（モニタ座標上で）
+  glutInitWindowSize(game.window.size.x, game.window.size.y);  // ウィンドウサイズ（ピクセル単位）
+  glutInitDisplayMode(GLUT_RGBA | GLUT_SINGLE);                // デフォルト値
+  glutCreateWindow("バーチャル旋盤");                          // ウィンドウ生成
+  // glutEnterGameMode();                                         // フルスクリーンモードで開始
 
   // ウィンドウの初期化
   glutWarpPointer(0, 0);            // マウスカーソルを移動
@@ -34,54 +32,55 @@ int main(int argc, char* argv[]) {
     // 視点の設定
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
-    gluLookAt(Game::camera.position.x, Game::camera.position.y, Game::camera.position.z,
-              Game::camera.target.x, Game::camera.target.y, Game::camera.target.z,
-              Game::camera.posture.x, Game::camera.posture.y, Game::camera.posture.z);
+    gluLookAt(game.camera.position.x, game.camera.position.y, game.camera.position.z,
+              game.camera.target.x, game.camera.target.y, game.camera.target.z,
+              game.camera.posture.x, game.camera.posture.y, game.camera.posture.z);
     // 視野領域の設定
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
-    gluPerspective(Game::camera.viewing_angle,
+    gluPerspective(game.camera.viewing_angle,
                    (double)width / height,
-                   Game::camera.render_min,
-                   Game::camera.render_max);
+                   game.camera.render_min,
+                   game.camera.render_max);
     // 再描画
-    Game::draw();
+    game.draw();
   });
 
   // キーボードが押されたとき
   glutKeyboardFunc([](const unsigned char key, const int x, const int y) {
     if(key == 27) exit(0);  // ESCキーで終了
-    if(key == ' ') Game::init_object();
-    Game::draw();
+    if(key == ' ') game.init_object();
+    game.draw();
   });
 
   // マウスのボタンが押されたとき
   glutMouseFunc([](const int button, const int state, const int x, const int y) {
-    Game::mouse.start_path(x, y);
+    game.mouse.start_path(x, y);
     if(button == GLUT_LEFT_BUTTON) {
       if(state == GLUT_DOWN) {
       }
     } else if(button == GLUT_MIDDLE_BUTTON) {
     } else if(button == GLUT_RIGHT_BUTTON) {
     }
-    Game::draw();
+    game.draw();
   });
 
   // ウィンドウフォーカス時にマウスが動いたとき
   glutMotionFunc([](const int x, const int y) {
-    Game::mouse.next_path_point(x, y);
-    Game::draw();
+    game.mouse.next_path_point(x, y);
+    // game.cut();
+    game.draw();
   });
 
   // 非ウィンドウフォーカス時のマウスが動いたとき
   glutPassiveMotionFunc([](const int x, const int y) {
-    Game::mouse.next_path_point(x, y);
-    Game::draw();
+    game.mouse.next_path_point(x, y);
+    game.draw();
   });
 
   // 描画オブジェクトの初期化と描画
-  Game::init_object();
-  Game::draw();
+  game.init_object();
+  game.draw();
 
   // メインループ
   glutMainLoop();
